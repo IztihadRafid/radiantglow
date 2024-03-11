@@ -42,8 +42,8 @@
         <nav class="navbar navbar-expand-lg navbar-light  ">
             <div class="container-fluid">
                 <img src="./images/logopic.png" alt="logo" class="logo">
-                <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
-                    <span class="navbar-toggler-icon"></span>
+                <button class="navbar-toggler bg-light" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+                    <span class="navbar-toggler-icon "></span>
                 </button>
                 <div class="collapse navbar-collapse" id="navbarSupportedContent">
                     <ul class="navbar-nav me-auto mb-2 mb-lg-0">
@@ -180,8 +180,51 @@
                 </div>
             </div>
         </div>
-        <div class="col-md-2">
-            <!-- sidenavbar -->
+        <!-- sidenavbar -->
+        <div class="col-md-2 bg-secondary p-0">
+            <!-- brands -->
+            <ul class="navbar-nav me-auto text-center">
+                <li class="nav-item bg-info">
+                    <a href="" class="nav-link text-light"><h4>Brands</h4></a>
+                </li>
+                <li class="nav-item">
+                    <a href="" class="nav-link text-light">Brand1</a>
+                </li>
+                <li class="nav-item">
+                    <a href="" class="nav-link text-light">Brand2</a>
+                </li>
+                <li class="nav-item">
+                    <a href="" class="nav-link text-light">Brand3</a>
+                </li>
+                <li class="nav-item">
+                    <a href="" class="nav-link text-light">Brand4</a>
+                </li>
+                <li class="nav-item">
+                    <a href="" class="nav-link text-light">Brand5</a>
+                </li>
+            </ul>
+
+            <!-- Categories -->
+            <ul class="navbar-nav me-auto text-center">
+                <li class="nav-item bg-info">
+                    <a href="" class="nav-link text-light"><h4>Categories</h4></a>
+                </li>
+                <li class="nav-item">
+                    <a href="" class="nav-link text-light">categories1</a>
+                </li>
+                <li class="nav-item">
+                    <a href="" class="nav-link text-light">categories2</a>
+                </li>
+                <li class="nav-item">
+                    <a href="" class="nav-link text-light">categories3</a>
+                </li>
+                <li class="nav-item">
+                    <a href="" class="nav-link text-light">categories4</a>
+                </li>
+                <li class="nav-item">
+                    <a href="" class="nav-link text-light">categories5</a>
+                </li>
+            </ul>
         </div>
     </div>
 
