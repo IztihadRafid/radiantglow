@@ -1,3 +1,8 @@
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: 0;
+}
 .logo{
     width: 10%;
     height: 1%;
@@ -25,4 +30,19 @@
 }
 .card{
     width: 450px;
+}
+/* ===================================== */
+            /* ADMIN */
+ /*=================================== */ */
+ .admin_image{
+    width: 100px;
+    object-fit: contain;
+    border: 2px solid black;
+    border-radius: 300px;
+}
+.btn-radius{
+    border-radius: 200px;
+}
+.bg-purple-light{
+    background-color: #DC7BED;
 }
