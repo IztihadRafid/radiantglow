@@ -14,8 +14,27 @@
 
 <body>
     <?php
-        include("../includes/connect.php")
-    
+        include("../includes/connect.php");
+        // Create and Posting CATEGORY
+        if(isset($_POST["insert_cat"])){
+            $category_title = $_POST["cat_title"];
+            
+            //select data from database
+            $select_query="Select * from `categories` where category_title= '$category_title'";
+            $result_select = mysqli_query($con, $select_query);
+            $number = mysqli_num_rows($result_select);
+            if($number>0){
+                echo "<script>alert('This category is present inside the database')</script>";
+            }
+            else{
+                $insert_query = "insert into `categories` (category_title) values('$category_title')";
+                $result = mysqli_query($con, $insert_query);
+                if($result){
+                    echo "<script>alert('Category Has Been Inserted Successfully')</script>";
+            }
+            
+        }
+    }
     ?>
     <h1 class="text-center p-3">Insert Category</h1>
     <div class="border border-danger border-1 rounded-3 w-50 mx-auto mt-4 p-5">
@@ -26,8 +45,8 @@
             </div>
             <div class="input-group  w-10">
 
-                <!-- <input type="submit" class="form-control bg-info" value="Insert categories" name="insert_cat"> -->
-                <button class="bg-info py-3 px-5 my-3 border-0 rounded-2" >Insert Categories</button>
+                <input type="submit" class="bg-info py-3 px-5 my-3 border-0 rounded-2" value="Insert categories" name="insert_cat">
+                <!-- <button class="bg-info py-3 px-5 my-3 border-0 rounded-2" >Insert Categories</button> -->
             </div>
         </form>
     </div>
