@@ -43,6 +43,10 @@
 .btn-radius{
     border-radius: 200px;
 }
+
+/* .btn-admin:hover{
+    background-color: aqua;
+} */
 .bg-purple-light{
     background-color: #DC7BED;
 }
