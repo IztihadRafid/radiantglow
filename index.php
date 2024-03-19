@@ -1,3 +1,8 @@
+<!-- Connect File -->
+<?php
+include("includes/connect.php");
+?>
+
 <!DOCTYPE html>
 <html lang="en">
 
@@ -11,6 +16,15 @@
     <!-- font awesome -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css" integrity="sha512-DTOQO9RWCH3ppGqcWaEA1BIZOC6xxalwEsw9c2QQeAIftl+Vegovlnee1c9QX4TctnWMn13TZye+giMm8e2LwA==" crossorigin="anonymous" referrerpolicy="no-referrer" />
     <style>
+        .card {
+            width: 300px;
+        }
+
+        .cards {
+            width: 95%;
+            margin: auto;
+        }
+
         .overlay {
             position: relative;
             width: 100%;
@@ -33,33 +47,57 @@
         .overlay-content h3 {
             font-size: 40px;
         }
-        @media only screen and (max-width: 768px){
-            body{
-               
+
+        @media only screen and (max-width: 980px) {
+            body {
+
                 margin: auto;
             }
-    .overlay-content h3 {
-        font-size: 20px;
-    }
-     .bannerText{
-        font-size: small;
-     }
-     .btn_offer{
-        padding-left: 1px;
-        padding-right: 1px;
-        padding-top: 2px;
-        padding-bottom: 2px;
-        font-size: 10px;
-     }
- 
-     .navbar{
-        padding: 2px 2px 2px 2px;
-     }
-     .card{
-        width: 300px;
-        margin: auto;
-     }
-    }
+
+            .overlay-content h3 {
+                font-size: 20px;
+            }
+
+            .bannerText {
+                font-size: small;
+            }
+
+            .btn_offer {
+
+                padding-left: 1px;
+                padding-right: 1px;
+                padding-top: 2px;
+                padding-bottom: 2px;
+                font-size: 8px;
+            }
+
+            .navbar {
+                padding: 5px 5px 5px 5px;
+            }
+
+            .card {
+                width: 300px;
+                margin: auto;
+            }
+
+            .card-leftbar {
+                display: grid;
+                grid-template-columns: repeat(1, 1fr);
+            }
+
+            .cards {
+                width: 80%;
+            }
+
+        }
+
+        @media only screen and (max-width: 1200px) and (min-width:981px) {
+            .card-leftbar {
+                display: grid;
+                grid-template-columns: repeat(2, 1fr);
+
+            }
+        }
     </style>
 </head>
 
@@ -127,7 +165,9 @@
                     <div class="overlay-content">
                         <h3 class="text-left">Hidden Store</h3>
                         <p class="text-left bannerText">Explore RadiantGlow's Range of Skincare Essentials <br>Elevate Your Skincare Routine with RadiantGlow's Premium Products</p>
-                        <div class="row justify-content-center " style="width: 150px"><button type="button" class="btn btn-dark btn_offer">GET OFFER 20%</button></div>
+                        <div class="row justify-content-center " style="width: 150px">
+                            <button type="button" class="btn btn-dark btn_offer">GET OFFER 20%</button>
+                        </div>
                     </div>
                 </div>
             </div>
@@ -138,7 +178,7 @@
     <div class="cards row">
         <div class="col-md-10">
             <!-- products -->
-            <div class="row">
+            <div class="row card-leftbar">
                 <div class="col-md-4 mb-4">
                     <div class="card">
                         <img src="./images/Oziva.jpg" class="card-img-top" alt="product">
@@ -151,7 +191,7 @@
                     </div>
                 </div>
                 <div class="col-md-4">
-                <div class="card">
+                    <div class="card">
                         <img src="./images/dot&key.jpg" class="card-img-top" alt="product">
                         <div class="card-body">
                             <h5 class="card-title">Card title</h5>
@@ -162,7 +202,7 @@
                     </div>
                 </div>
                 <div class="col-md-4">
-                <div class="card">
+                    <div class="card">
                         <img src="./images/cerave.jpg" class="card-img-top" alt="product">
                         <div class="card-body">
                             <h5 class="card-title">Card title</h5>
@@ -208,49 +248,61 @@
             </div>
         </div>
         <!-- sidenavbar -->
-        <div class="col-md-2 bg-secondary p-0">
+        <div class="col-md-2 bg-secondary p-0 sidenavbarLi">
             <!-- brands -->
             <ul class="navbar-nav me-auto text-center">
                 <li class="nav-item bg-info">
-                    <a href="" class="nav-link text-light"><h4>Brands</h4></a>
+                    <a href="" class="nav-link text-light">
+                        <h4>Brands</h4>
+                    </a>
                 </li>
-                <li class="nav-item">
-                    <a href="" class="nav-link text-light">Brand1</a>
-                </li>
-                <li class="nav-item">
-                    <a href="" class="nav-link text-light">Brand2</a>
-                </li>
-                <li class="nav-item">
-                    <a href="" class="nav-link text-light">Brand3</a>
-                </li>
-                <li class="nav-item">
-                    <a href="" class="nav-link text-light">Brand4</a>
-                </li>
-                <li class="nav-item">
-                    <a href="" class="nav-link text-light">Brand5</a>
-                </li>
+
+                <!-- PHP code -->
+                <!-- ==================================================== -->
+                <!-- Dynamic Brand list showing in SideBar -->
+                <!-- ==================================================== -->
+                <?php
+                $select_brands = "Select * from `brands`";
+                $result_brands = mysqli_query($con, $select_brands);
+
+                // echo $row_data['brand_title'];
+                while ($row_data = mysqli_fetch_assoc($result_brands)) {
+                    $brand_title = $row_data['brand_title'];
+                    $brand_id = $row_data['brand_id'];
+                    echo "<li class='nav-item'>
+                             <a href='index.php?brand=$brand_id' class='nav-link text-light'>$brand_title</a>
+                          </li>";
+                }
+                ?>
+
+
+
             </ul>
 
             <!-- Categories -->
             <ul class="navbar-nav me-auto text-center">
                 <li class="nav-item bg-info">
-                    <a href="" class="nav-link text-light"><h4>Categories</h4></a>
+                    <a href="" class="nav-link text-light">
+                        <h4>Categories</h4>
+                    </a>
                 </li>
-                <li class="nav-item">
-                    <a href="" class="nav-link text-light">categories1</a>
-                </li>
-                <li class="nav-item">
-                    <a href="" class="nav-link text-light">categories2</a>
-                </li>
-                <li class="nav-item">
-                    <a href="" class="nav-link text-light">categories3</a>
-                </li>
-                <li class="nav-item">
-                    <a href="" class="nav-link text-light">categories4</a>
-                </li>
-                <li class="nav-item">
-                    <a href="" class="nav-link text-light">categories5</a>
-                </li>
+              <!-- ==================================================== -->
+                <!-- Dynamic Category list showing in SideBar -->
+                <!-- ==================================================== -->
+                <?php
+                $select_categories = "Select * from `categories`";
+                $result_categories = mysqli_query($con, $select_categories);
+
+                // echo $row_data['category_title'];
+                while ($row_data = mysqli_fetch_assoc($result_categories)) {
+                    $category_title = $row_data['category_title'];
+                    $category_id = $row_data['category_id'];
+                    echo "<li class='nav-item'>
+                             <a href='index.php?category=$category_id' class='nav-link text-light'>$category_title</a>
+                          </li>";
+                }
+                ?>
+               
             </ul>
         </div>
     </div>
