@@ -16,6 +16,7 @@ include("includes/connect.php");
     <!-- font awesome -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css" integrity="sha512-DTOQO9RWCH3ppGqcWaEA1BIZOC6xxalwEsw9c2QQeAIftl+Vegovlnee1c9QX4TctnWMn13TZye+giMm8e2LwA==" crossorigin="anonymous" referrerpolicy="no-referrer" />
     <style>
+        
         .card {
             width: 300px;
         }
@@ -53,7 +54,7 @@ include("includes/connect.php");
 
                 margin: auto;
             }
-
+           
             .overlay-content h3 {
                 font-size: 20px;
             }
@@ -64,10 +65,7 @@ include("includes/connect.php");
 
             .btn_offer {
 
-                padding-left: 1px;
-                padding-right: 1px;
-                padding-top: 2px;
-                padding-bottom: 2px;
+               width: 100px;
                 font-size: 8px;
             }
 
@@ -88,7 +86,20 @@ include("includes/connect.php");
             .cards {
                 width: 80%;
             }
+            .overlay .overlay-content {
+            position: absolute;
+            top: 25%;
+            left: 5%;
 
+            font-size:medium;
+            color: black;
+        }
+
+        .overlay-content h3 {
+            font-size: 20px;
+        }
+
+       
         }
 
         @media only screen and (max-width: 1200px) and (min-width:981px) {
@@ -157,20 +168,45 @@ include("includes/connect.php");
 
 
     <!-- heading /Banner section -->
-    <div class="container mb-4">
-        <div class="row">
-            <div class="col">
-                <div class="overlay">
+    <div class="container mb-4 mt-3">
+        <div class="row carousel slide"  id="carouselExampleControls" data-bs-ride="carousel">
+            <div class="col carousel-inner">
+                <div class="overlay carousel-item active">
                     <img src="./images/banner.jpg" alt="banner">
                     <div class="overlay-content">
                         <h3 class="text-left">Hidden Store</h3>
                         <p class="text-left bannerText">Explore RadiantGlow's Range of Skincare Essentials <br>Elevate Your Skincare Routine with RadiantGlow's Premium Products</p>
                         <div class="row justify-content-center " style="width: 150px">
-                            <button type="button" class="btn btn-dark btn_offer">GET OFFER 20%</button>
-                        </div>
+                            <button type="button" class="btn btn-dark btn_offer">GET OFFER 20%</button></div>
+                    </div>
+                </div>
+                <div class="overlay carousel-item ">
+                    <img src="./images/product2.jpg" alt="banner">
+                    <div class="overlay-content">
+                        <h3 class="text-left">Hidden Store</h3>
+                        <p class="text-left bannerText">Explore RadiantGlow's Range of Skincare Essentials <br>Elevate Your Skincare Routine with RadiantGlow's Premium Products</p>
+                        <div class="row justify-content-center  " style="width: 150px">
+                            <button type="button" class="btn btn-dark btn_offer">GET OFFER 20%</button></div>
+                    </div>
+                </div>
+                <div class="overlay carousel-item ">
+                    <img src="./images/product3.jpg" alt="banner">
+                    <div class="overlay-content">
+                        <h3 class="text-left">Hidden Store</h3>
+                        <p class="text-left bannerText">Explore RadiantGlow's Range of Skincare Essentials <br>Elevate Your Skincare Routine with RadiantGlow's Premium Products</p>
+                        <div class="row justify-content-center " style="width: 150px">
+                            <button type="button" class="btn btn-dark btn_offer">GET OFFER 20%</button></div>
                     </div>
                 </div>
             </div>
+            <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleControls" data-bs-slide="prev">
+                <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+                <span class="visually-hidden">Previous</span>
+              </button>
+              <button class="carousel-control-next" type="button" data-bs-target="#carouselExampleControls" data-bs-slide="next">
+                <span class="carousel-control-next-icon" aria-hidden="true"></span>
+                <span class="visually-hidden">Next</span>
+              </button>
         </div>
     </div>
 
