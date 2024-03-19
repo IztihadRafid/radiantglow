@@ -33,10 +33,37 @@
         .overlay-content h3 {
             font-size: 40px;
         }
+        @media only screen and (max-width: 768px){
+            body{
+               
+                margin: auto;
+            }
+    .overlay-content h3 {
+        font-size: 20px;
+    }
+     .bannerText{
+        font-size: small;
+     }
+     .btn_offer{
+        padding-left: 1px;
+        padding-right: 1px;
+        padding-top: 2px;
+        padding-bottom: 2px;
+        font-size: 10px;
+     }
+ 
+     .navbar{
+        padding: 2px 2px 2px 2px;
+     }
+     .card{
+        width: 300px;
+        margin: auto;
+     }
+    }
     </style>
 </head>
 
-<body>
+<body class="mainbody">
     <!-- Navbar -->
     <div class="container-fluid p-0">
         <nav class="navbar navbar-expand-lg navbar-light  ">
@@ -99,8 +126,8 @@
                     <img src="./images/banner.jpg" alt="banner">
                     <div class="overlay-content">
                         <h3 class="text-left">Hidden Store</h3>
-                        <p class="text-left">Explore RadiantGlow's Range of Skincare Essentials <br>Elevate Your Skincare Routine with RadiantGlow's Premium Products</p>
-                        <div class="row justify-content-center " style="width: 150px"><button type="button" class="btn btn-dark">GET OFFER 20%</button></div>
+                        <p class="text-left bannerText">Explore RadiantGlow's Range of Skincare Essentials <br>Elevate Your Skincare Routine with RadiantGlow's Premium Products</p>
+                        <div class="row justify-content-center " style="width: 150px"><button type="button" class="btn btn-dark btn_offer">GET OFFER 20%</button></div>
                     </div>
                 </div>
             </div>
@@ -108,7 +135,7 @@
     </div>
 
     <!-- CARD and Sidebar -->
-    <div class="row">
+    <div class="cards row">
         <div class="col-md-10">
             <!-- products -->
             <div class="row">
