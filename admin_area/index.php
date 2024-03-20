@@ -66,7 +66,7 @@
                     <p class="text-light text-center">Admin Name</p>
                 </div>
                 <div class="button text-center mx-auto">
-                    <button class="btn-admin my-2"><a href="" class="nav-link p-2">Insert Product</a></button>
+                    <button class="btn-admin my-2"><a href="insert_product.php" class="nav-link p-2">Insert Product</a></button>
                     <button class="btn-admin my-2"><a href="" class="nav-link p-2">View Products</a></button>
                     <button class="btn-admin my-2"><a href="index.php?insert_category" class="nav-link p-2">Insert Category</a></button>
                     <button class="btn-admin my-2"><a href="" class="nav-link p-2">View Categories</a></button>

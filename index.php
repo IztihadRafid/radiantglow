@@ -20,6 +20,11 @@ include("includes/connect.php");
         .card {
             width: 300px;
         }
+        .card:hover{
+            /* background-color: whitesmoke; */
+            box-shadow: 5px 6px #7397eb;
+            
+        }
 
         .cards {
             width: 95%;
