@@ -1,5 +1,45 @@
 <?php
 include("../includes/connect.php");
+
+//insert button pressed
+if(isset($_POST["insert_product"])){
+    $product_title=$_POST['product_title'];
+    $description=$_POST['description'];
+    $product_keywords=$_POST['product_keywords'];
+    $product_category=$_POST['product_category'];
+    $product_brands=$_POST['product_brands'];
+    $product_price=$_POST['product_price'];
+    $product_status='true';
+
+
+    // accessing images
+    $product_image1=$_FILES['product_image1']['name'];
+    $product_image2=$_FILES['product_image2']['name'];
+    $product_image3=$_FILES['product_image3']['name'];
+  
+    // accessing image temp name
+    $temp_image1=$_FILES['product_image1']['tmp_name'];
+    $temp_image2=$_FILES['product_image2']['tmp_name'];
+    $temp_image3=$_FILES['product_image3']['tmp_name'];
+
+    // checking empty condition
+    if($product_title=='' or $description=='' or $product_keywords=='' or $product_category='' or $product_brands=='' or $product_price=='' or $product_image1=='' or $product_image2== '' or $product_image3== ''){
+
+        echo "<script>alert('Please fill all available fields')</script>";
+        exit();
+    }else{ 
+        move_uploaded_file($temp_image1,"./product_images/$product_image1");
+        move_uploaded_file($temp_image2,"./product_images/$product_image2");
+        move_uploaded_file($temp_image3,"./product_images/$product_image3");
+
+        //insert query
+        $insert_products = "insert into `products` (product_title,product_description,prooduct_keywords,category_id,brand_id,product_image1,	product_image2,product_image3,product_price,date,status) values('$product_title','$description','$product_keywords','$product_category','$product_brands','$product_image1','$product_image2','$product_image3','$product_price',NOW(),'$product_status')";
+        $result_query = mysqli_query($con, $insert_products);
+        if($result_query){
+            echo "<script>alert('Product Inserted Successfully')</script>";
+        }
+    }
+}
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -57,18 +97,18 @@ include("../includes/connect.php");
         <form action="" method="post" enctype="multipart/form-data">
             <!-- Product title -->
             <div class="form-outline mb-4 w-75 m-auto ">
-                <label for="" class="form-label"><b>Product title</b></label>
-                <input type="text" name="product-title" id="product-title" class="form-control" placeholder="Enter Product title" autocomplete="off" required="required">
+                <label for="product_title" class="form-label"><b>Product title</b></label>
+                <input type="text" name="product_title" id="product-title" class="form-control" placeholder="Enter Product title" autocomplete="off" required="required">
             </div>
              <!-- Product description -->
              <div class="form-outline mb-4 w-75 m-auto">
-                <label for="" class="form-label"><b>Description</b></label>
+                <label for="description" class="form-label"><b>Description</b></label>
                 <input type="text" name="description" id="description" class="form-control" placeholder="Enter Product description" autocomplete="off" required="required">
             </div>
              <!-- Product keyword -->
              <div class="form-outline mb-4 w-75 m-auto">
-                <label for="" class="form-label"><b>Product Keyword</b></label>
-                <input type="text" name="keywords" id="product_keywords" class="form-control" placeholder="Enter Product keywords" autocomplete="off" required="required">
+                <label for="product_keywords" class="form-label"><b>Product Keyword</b></label>
+                <input type="text" name="product_keywords" id="product_keywords" class="form-control" placeholder="Enter Product keywords" autocomplete="off" required="required">
             </div>
             <!-- categories -->
             <div class="form-outline mb-4 w-75 m-auto">
@@ -107,23 +147,23 @@ include("../includes/connect.php");
 
             <!-- Image 1-->
             <div class="form-outline mb-4 w-75 m-auto">
-                <label for="" class="form-label"><b>Product Image 1</b></label>
-                <input type="file" name="Product_Image1" id="Product_Image1" class="form-control" required="required">
+                <label for="product_image1" class="form-label"><b>Product Image 1</b></label>
+                <input type="file" name="product_image1" id="product_image1" class="form-control" required="required">
             </div>
             <!-- Image 2-->
             <div class="form-outline mb-4 w-75 m-auto">
-                <label for="" class="form-label"><b>Product Image 2</b></label>
-                <input type="file" name="Product_Image2" id="Product_Image2" class="form-control" required="required">
+                <label for="product_image2" class="form-label"><b>Product Image 2</b></label>
+                <input type="file" name="product_image2" id="product_image2" class="form-control" required="required">
             </div>
             <!-- Image 3-->
             <div class="form-outline mb-4 w-75 m-auto">
-                <label for="" class="form-label"><b>Product Image 3</b></label>
-                <input type="file" name="Product_Image3" id="Product_Image3" class="form-control" required="required">
+                <label for="product_image3" class="form-label"><b>Product Image 3</b></label>
+                <input type="file" name="product_image3" id="product_image3" class="form-control" required="required">
             </div>
 
                <!-- Product Price -->
             <div class="form-outline mb-4 w-75 m-auto">
-                <label for="" class="form-label"><b>Product Price</b></label>
+                <label for="product_price" class="form-label"><b>Product Price</b></label>
                 <input type="text" name="product_price" id="product_price" class="form-control" placeholder="Enter Product Price" autocomplete="off" required="required">
             </div>
             <!-- Product Submit -->
